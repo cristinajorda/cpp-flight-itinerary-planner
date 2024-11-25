@@ -1,0 +1,55 @@
+Flight Booking System
+ 
+Input
+	n // number of flights
+for next n lines:
+	flight_number airline location_1 location_2 departure_time arrival_time fare
+flight number: string of length 4,
+airline: string of length 2,
+location 1/2 : string of length 3,
+fare: (=price) floating point number
+ 
+e.g.
+4
+TEST AF CDG NCE 10:00 12:15 210.89
+TAAA AF NCE CDG 14:00 16:30 200.35
+BLAH AF CDG EWR 17:00 23:59 700.10
+TAA1 AF NCE EWR 09:00 15:00 600.98
+
+Notes on the input
+- No date, all flights are in the same day
+- Departure_time > arrival_time is OK
+ 
+Main functionalities
+ 
+1. Search for flight
+Search if an itinerary from point A to point B is possible (A != B). (give the solution if possible, "Not possible" otherwise). Stop searching at const int SOLUTION_MAX_FLIGHTS = 2;
+Flight combination should take into account the times (departure_time flight1 > arrival_time flight2).
+Each solution should print the flights that are part of it.
+(maybe try to search only direct flights, and then generalize to combinations)
+sort the solution by prize (cheaper 1st)
+carful with cycles (return to previous airport)
+ 
+example NCE-EWR:
+Solution #1:
+TAAA AF NCE CDG 14:00 16:30 200.35
+BLAH AF CDG EWR 17:00 23:59 700.10
+Total price: 900.45
+Total duration: 9:59 (optional)
+Solution #2:
+TAA1 AF NCE EWR 09:00 15:00 600.98
+Total price: 600.98
+Total duration: 6:00 (optional)
+ 
+example EWR-NCE:
+Not possible
+ 
+Tips
+Use classes where possible.
+to get more inputs: iata.org
+ 
+Idea for later:
+Main Menu:
+1. Search for flight
+1 LOC1 LOC2 onlyDirect (e.g. 1 NCE EWR T/F)
+ 
