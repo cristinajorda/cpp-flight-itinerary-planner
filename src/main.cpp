@@ -43,13 +43,6 @@ int main() {
 
     // Close input file
     inputFile.close();
-
-    //std::vector<Flight> flights = {
-    //    Flight("TEST", "AF", "CDG", "NCE", 10.00, 12.15, 210.89),
-    //    Flight("TAAA", "AF", "NCE", "CDG", 14.00, 16.30, 200.35),
-    //    Flight("BLAH", "AF", "CDG", "EWR", 17.00, 23.59, 700.10),
-    //    Flight("TAA1", "AF", "NCE", "EWR", 13.00, 15.00, 600.98)
-    //};
     
     // Create an empty itinerary
     Itinerary it("", "", {});

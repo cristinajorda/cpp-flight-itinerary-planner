@@ -14,7 +14,7 @@ std::vector<Combination> Itinerary::getCombinations() {
 }
 
 // Helper method for findCombinations method
-void Itinerary::findPaths(const std::string &dep, std::vector<Flight> currentPath, double totalFare, double totalTime, std::vector<Flight> &flights, std::vector<Combination> &validCombinations, std::set<std::string> visitedAirports) {
+void Itinerary::findPaths(const std::string &dep, std::vector<Flight> currentPath, double totalFare, std::vector<Flight> &flights, std::vector<Combination> &validCombinations, std::set<std::string> visitedAirports) {
     std::string currentLoc = dep;
     
     // Base case: If current location matches the arrival location, save the path
@@ -28,17 +28,6 @@ void Itinerary::findPaths(const std::string &dep, std::vector<Flight> currentPat
         }
     }
 
-    // prints for debugging
-    //std::cout << "current loc: " << currentLoc << std::endl;
-    //std::cout << "Combinations: [";
-    //for (const auto &comb : validCombinations) {
-    //    std::cout << "comb " << comb.getID() << std::endl;
-    //    for (auto &flight : comb.getFlights()) {
-    //        std::cout << flight.getID() << " ";
-    //    }
-    //}
-    //std::cout << "]" << std::endl;
-    
     // Iterate over all available flights
     for (int i=0; i<flights.size(); i++) {
         //std::cout << flights[i].getID() << std::endl;
@@ -55,8 +44,6 @@ void Itinerary::findPaths(const std::string &dep, std::vector<Flight> currentPat
         }
 
         // Skip flights to airport already in the path to avoid cycles
-        //if (visitedAirports.find(flights[i].getDepLoc()) != visitedAirports.end() || 
-        //visitedAirports.find(flights[i].getArrLoc()) != visitedAirports.end()) {
         if (visitedAirports.find(flights[i].getArrLoc()) != visitedAirports.end()) {
             // set.find(element) -> returns iterator pointing to element
             // if not found, returns set.end()
@@ -66,7 +53,6 @@ void Itinerary::findPaths(const std::string &dep, std::vector<Flight> currentPat
 
         // Add the flight to the current path
         currentPath.push_back(flights[i]);
-        //std::cout << "flight added to path" << std::endl;
 
         // Add departure and arrival airports as visited
         visitedAirports.insert(flights[i].getDepLoc());
@@ -77,7 +63,6 @@ void Itinerary::findPaths(const std::string &dep, std::vector<Flight> currentPat
             flights[i].getArrLoc(),
             currentPath,
             totalFare + flights[i].getFare(),
-            totalTime,
             flights,
             validCombinations,
             visitedAirports
@@ -102,7 +87,7 @@ void Itinerary::findCombinations(const std::string& dep, const std::string& arr,
 
     // Call the helper function
     // Recursive backtracking
-    findPaths(depLoc, {}, 0.0, 0.0, flights, validCombinations, visitedAirports);
+    findPaths(depLoc, {}, 0.0, flights, validCombinations, visitedAirports);
 
     combinations = validCombinations;
 }

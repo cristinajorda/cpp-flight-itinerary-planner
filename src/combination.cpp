@@ -5,7 +5,6 @@
 Combination::Combination(const std::vector<Flight>& listFlights) {
     flights = listFlights;
     totalFare = 0.0;
-    totalTime = 0.0;
 
     // Initialize the ID by concatenating the IDs of all flights
     std::stringstream ss;
@@ -20,7 +19,6 @@ Combination::Combination(const std::vector<Flight>& listFlights) {
 
     // Calculate total fare and total time
     totalFare = computeTotalFare();
-    totalTime = computeTotalTime();
 }
 
 // Getter for the Combination ID
@@ -38,11 +36,6 @@ double Combination::getTotalFare() const {
     return totalFare;
 }
 
-// Getter for the total time
-double Combination::getTotalTime() const {
-    return totalTime;
-}
-
 // Method to compute the total fare of the combination
 double Combination::computeTotalFare() {
     double fare = 0.0;
@@ -50,12 +43,6 @@ double Combination::computeTotalFare() {
         fare += flights[i].getFare();
     }
     return fare;
-}
-
-// Method to compute the total travel time of the combination
-double Combination::computeTotalTime() {
-    // for the future
-    return 0.0;
 }
 
 // Method to display the combination and its flight details

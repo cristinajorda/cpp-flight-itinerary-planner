@@ -22,7 +22,7 @@ public:
     std::vector<Combination> getCombinations();
 
     // Helper method for findCombinations method
-    void findPaths(const std::string &depLoc, std::vector<Flight> currentPath, double totalFare, double totalTime, std::vector<Flight> &flights, std::vector<Combination> &validCombinations, std::set<std::string> visitedAirports);
+    void findPaths(const std::string &depLoc, std::vector<Flight> currentPath, double totalFare, std::vector<Flight> &flights, std::vector<Combination> &validCombinations, std::set<std::string> visitedAirports);
 
     // Method to find combinations based on depLoc and arrLoc
     void findCombinations(const std::string &dep, const std::string &arr, std::vector<Flight> &flights);

@@ -10,7 +10,6 @@ private:
     std::string ID;                // Combination ID (string of concatenated flight IDs)
     std::vector<Flight> flights;   // List of Flight objects
     double totalFare;              // Total fare of the combination
-    double totalTime;              // Total time of the combination
 
 public:
     // Constructor
@@ -20,11 +19,9 @@ public:
     std::string getID() const;
     std::vector<Flight> getFlights() const;
     double getTotalFare() const;
-    double getTotalTime() const;
 
     // Methods to compute total fare and total time
     double computeTotalFare();
-    double computeTotalTime();
 
     // Method to display the combination and its flight details
     void displayInfo();
