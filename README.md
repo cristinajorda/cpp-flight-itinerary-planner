@@ -23,5 +23,3 @@ The project consists of several core classes that work together to handle the fl
 - **`Flight`**: Holds data related to a single flight (ID, airline, airports, times, fare).
 - **`Combination`**: Represents an itinerary, i.e., a valid combination of flights from departure to arrival.
 - **`Itinerary`**: Orchestrates the process of finding flight combinations between two airports, using recursion and backtracking.
-
-Each class has a clear responsibility, making the project modular and easy to maintain or extend.
