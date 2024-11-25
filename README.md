@@ -14,7 +14,7 @@ The **C++ Flight Itinerary Planner** is a project for efficiently managing and a
 
 The program reads flight data from a text file, input_data.txt. Each line in the file represents a flight with the following format:
 
-<Flight ID> <Airline> <Departure Airport> <Arrival Airport> <Departure Time> <Arrival Time> <Fare>
+`<Flight ID> <Airline> <Departure Airport> <Arrival Airport> <Departure Time> <Arrival Time> <Fare>`
 
 ## Code Structure
 
